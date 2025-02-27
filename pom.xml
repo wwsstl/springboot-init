@@ -12,8 +12,8 @@
 
     <groupId>com.power.bladex</groupId>
     <artifactId>demo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>SpringbootWeb Maven Webapp</name>
+    <version>1.0.0</version>
+    <name>power-bladex-webapp</name>
     <description>Demo project for Spring Boot Web</description>
     <url/>
 
@@ -59,6 +59,24 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.google.cloud.tools</groupId>
+                <artifactId>jib-maven-plugin</artifactId>
+                <version>3.4.4</version>
+                <configuration>
+                    <from>
+                        <image>eclipse-temurin:21.0.6_7-jre-alpine-3.21</image>
+                    </from>
+                    <to>
+                        <image>192.168.68.205:8092/${project.name}:${project.version}</image>
+                        <tags>${project.version}</tags>
+                    </to>
+                    <allowInsecureRegistries>true</allowInsecureRegistries>
+                    <container>
+                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
+                    </container>
+                </configuration>
             </plugin>
         </plugins>
     </build>
